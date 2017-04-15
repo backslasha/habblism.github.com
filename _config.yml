@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site configuration
 domain: "http://songroger.win"
 baseurl: "" # the subpath of your site, e.g. /blog/
@@ -34,3 +35,6 @@ gems: ['jekyll-paginate']
 # Pagination
 paginate: 5
 paginate_path: /archive/page:num
+=======
+theme: jekyll-theme-minimal
+>>>>>>> origin/master
