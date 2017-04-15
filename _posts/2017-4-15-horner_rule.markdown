@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "霍纳算法和二进制幂"
+date:   2017-4-15 23:08:17 +0800
+categories: algorithms
+description: new to githubPage
+---
+---
+Markdown manual
 
 # 霍纳算法和二进制幂
 
