@@ -5,8 +5,7 @@ date:   2017-4-15 23:08:17 +0800
 categories: algorithms
 description: new to githubPage
 ---
----
-Markdown manual
+
 
 # 霍纳算法和二进制幂
 
@@ -77,11 +76,11 @@ Markdown manual
     return p
 </pre>
 
-##二进制幂
+## 二进制幂
 直接计算 a<sub>n</sub> 次方的效率是 O(n)，使用二进制幂的算法可以提高效率.
 
-###从左至右二进制幂(从高到低位)
-######1. 用二进制表示整数 n，b<sub>i</sub> 为 0 和 1
+### 从左至右二进制幂(从高到低位)
+###### 1. 用二进制表示整数 n，b<sub>i</sub> 为 0 和 1
 <pre>
 设 n = b<sub>I</sub> ... b<sub>i</sub> ... b<sub>0</sub> = b<sub>I</sub>2<sup>I</sup> + ... + b<sub>i</sub>2<sup>i</sup> + ... + b<sub>0</sub> 
 
@@ -89,7 +88,7 @@ Markdown manual
 
 记 p(2) = b<sub>I</sub>2<sup>I</sup> + ... + b<sub>i</sub>2<sup>i</sup> + ... + b<sub>0</sub>
 </pre>
-######2. 理解用霍纳法则计算 p(2) 的步骤对于 a<sup>p(2)</sup> 的意义
+###### 2. 理解用霍纳法则计算 p(2) 的步骤对于 a<sup>p(2)</sup> 的意义
 <table>
     <tr >
         <th>用霍纳法则计算 p(2)</th>
@@ -112,13 +111,13 @@ for i ← I-1 downto 0 do
         </td>
     </tr>
 </table>
-######3.  根据 n 的二进制串计算 a<sub>n</sub> 的值
+###### 3.  根据 n 的二进制串计算 a<sub>n</sub> 的值
  因为 b<sub>i</sub> 的值取 1 或者 0，所以在计算 a<sup>p</sup> ← a<sup>2p + b<sub>i</sub></sup> 时，需要分两种情况：  
  
 - a<sup>p</sup> = a<sup>2p + b<sub>i</sub></sup> =  (a<sup>p</sup>)<sup>2</sup> * a<sup>b<sub>i</sub></sup> = (a<sup>p</sup>)<sup>2</sup>     （当 b<sub>i</sub> = 0）  
 - a<sup>p</sup> = a<sup>2p + b<sub>i</sub></sup> =  (a<sup>p</sup>)<sup>2</sup> * a<sup>b<sub>i</sub></sup> = (a<sup>p</sup>)<sup>2</sup> * a（当 b<sub>i</sub> = 1）
 <br/>  
-######4. 因此，给定 n 的二进制串，我们可以这样求得 a<sup>n</sup> 的结果，间接利用了霍纳法则
+###### 4. 因此，给定 n 的二进制串，我们可以这样求得 a<sup>n</sup> 的结果，间接利用了霍纳法则
 <pre>
     算法 LeftRightBinaryExponentiation(a,b(n))
     // 用从左至右二进制幂算法计算 a<sup>n</sup>
@@ -131,27 +130,27 @@ for i ← I-1 downto 0 do
             product ← product * a
     return product
 </pre>
-######5. 算法效率
+###### 5. 算法效率
 本算法的每一次循环都要做一到两次乘法，记中的乘法次数为 M(n) ，
 则 I-1 <= M(n) <= 2(I-1)，I 为二进制串的长度
 因为 I = ⌊log<sub>2</sub>n⌋+1，所以上面的二进制幂算法的效率是对数级的，而直接计算 a 的 n 次方的蛮力法为线性级。
 ###从右至左二进制幂
 以上的二进制幂其实叫做“从左至右的二进制幂算法”，借助了霍纳法则，实际上还有一种和霍纳法则似乎没什么关联的从右至左的二进制幂算法来计算 a<sup>n</sup> 
-######1. 同样用二进制表示整数 n，b<sub>i</sub> 为 0 和 1
+###### 1. 同样用二进制表示整数 n，b<sub>i</sub> 为 0 和 1
 <pre>
 设 n = b<sub>I</sub> ... b<sub>i</sub> ... b<sub>0</sub> = b<sub>I</sub>2<sup>I</sup> + ... + b<sub>i</sub>2<sup>i</sup> + ... + b<sub>0</sub> 
 
 则 a<sup>n</sup> = a<sup>b<sub>I</sub>2<sup>I</sup> + ... + b<sub>i</sub>2<sup>i</sup> + ... + b<sub>0</sub></sup> = a<sup>b<sub>I</sub>2<sup>I</sup></sup> * ... * a<sup>b<sub>i</sub>2<sup>i</sup></sup>  * ... * a<sup>b<sub>0</sub></sup>
 </pre>
 
-######2.  根据 n 的二进制串计算 a<sub>n</sub> 的值
+###### 2.  根据 n 的二进制串计算 a<sub>n</sub> 的值
  因为 b<sub>i</sub> 的值取 1 或者 0，所以：  
  
 - a<sup>b<sub>i</sub>2<sup>i</sup></sup> =  a<sup>2<sup>i</sup></sup>  （当 b<sub>i</sub> = 1）  
 - a<sup>b<sub>i</sub>2<sup>i</sup></sup> =  1（当 b<sub>i</sub> = 0）
 
 所以在 a<sup>b<sub>I</sub>2<sup>I</sup></sup> * ... * a<sup>b<sub>i</sub>2<sup>i</sup></sup>  * ... * a<sup>b<sub>0</sub></sup> 中，只需要考虑 b<sub>i</sub> = 1 的项
-######3. 伪代码
+###### 3. 伪代码
 <pre>
     算法 RightLeftBinaryExponentiation(a,b(n))
     // 用从右至左二进制幂算法计算 an
@@ -165,5 +164,5 @@ for i ← I-1 downto 0 do
         if b<sub>i</sub>=1 product ← product * term
     return product
 </pre>
-######4. 算法效率
+###### 4. 算法效率
 显然从右至左二进制幂算法的效率也是对数级的。
