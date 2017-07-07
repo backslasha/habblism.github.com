@@ -1,11 +1,11 @@
----
+<!---
 layout: post
 title:  "Markdown"
 date:   2016-10-12 17:13:17 +0800
 categories: diary
 location: Florence, Italy
 description: love markdown, love plain texts. Enjoy its manual
----
+--->
 ---
 Markdown manual
 
