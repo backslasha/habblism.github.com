@@ -25,6 +25,7 @@ description: new to githubPage
 - 使用一个两行的表来说明使用霍纳算法的过程
     - 第一行包含了多项式的每个系数，由次数低到高排列
     - 第二行只保留最高次数项的系数
+    
 <table>
     <tr>
         <th>系数</th>
@@ -43,7 +44,9 @@ description: new to githubPage
         <td>2</td>
     </tr>
 </table>
+
 - 从最高项的下一项开始，每一项的结果为 **x** 乘以 **上一项单元格中的结果** 加上 **本项的系数**，以此规则填充完表格的第二行:
+
 <table>
     <tr>
         <th>系数</th>
@@ -62,6 +65,7 @@ description: new to githubPage
         <td>2</td>
     </tr>
 </table>
+
 - 填充完毕后，表格第二行中最后一项求得的数据就是多项式的结果
 
 **伪码**
